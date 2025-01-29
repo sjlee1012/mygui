@@ -1,0 +1,18 @@
+devices:
+  - name: "DeviceA"
+    messages:
+      - "GGA"
+      - "RMC"
+      - "GSA"
+
+  - name: "DeviceB"
+    messages:
+      - "GGA"
+      - "RMC"
+      - "GSV"
+      - "XYZ"   # 커스텀 확장 메시지
+
+  - name: "DeviceC"
+    messages:
+      - "RMC"
+      - "XYZ"

@@ -1,0 +1,16 @@
+package com.gmt.common;
+
+
+import com.gmt.common.ShipInSafeZoneFact;
+
+rule "Ship has lingered more than 10 minutes in safe zone"
+when
+$fact : ShipInSafeZoneFact( inside == true, $enterTime : enterTime )
+eval( (System.currentTimeMillis() - $enterTime) >= (10 * 60 * 1000) )
+then
+    System.out.println("[Drools Rule Fired] 알람! 선박 " + $fact.getShipId()
+        + " 가 안전항로 " + $fact.getZoneId()
+        + "에 진입 후 10분 이상 머무르고 있습니다.");
+// 추가 처리(알람 전송, DB 기록 등)을 여기에...
+end
+
