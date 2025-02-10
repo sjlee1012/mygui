@@ -5,11 +5,51 @@ plugins {
 group = 'com.gmt'
 version = '1.0-SNAPSHOT'
 
+project.ext.lwjglVersion = "3.3.6"
+project.ext.lwjglNatives = "natives-macos-arm64"
+
 repositories {
+    maven { url "https://repo.osgeo.org/repository/snapshot/"}
+    maven { url "https://repo.osgeo.org/repository/release/"}
     mavenCentral()
 }
 
 dependencies {
+
+
+    implementation platform("org.lwjgl:lwjgl-bom:$lwjglVersion")
+
+    implementation "org.lwjgl:lwjgl"
+    implementation "org.lwjgl:lwjgl-assimp"
+    implementation "org.lwjgl:lwjgl-bgfx"
+    implementation "org.lwjgl:lwjgl-glfw"
+    implementation "org.lwjgl:lwjgl-nanovg"
+    implementation "org.lwjgl:lwjgl-nuklear"
+    implementation "org.lwjgl:lwjgl-openal"
+    implementation "org.lwjgl:lwjgl-opengl"
+    implementation "org.lwjgl:lwjgl-par"
+    implementation "org.lwjgl:lwjgl-stb"
+    implementation "org.lwjgl:lwjgl-vulkan"
+    runtimeOnly "org.lwjgl:lwjgl::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-assimp::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-bgfx::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-glfw::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-nanovg::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-nuklear::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-openal::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-opengl::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-par::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-stb::$lwjglNatives"
+    runtimeOnly "org.lwjgl:lwjgl-vulkan::$lwjglNatives"
+
+
+    implementation 'org.jfree:jfreechart:1.5.3'
+    testImplementation 'ch.qos.logback:logback-classic:1.5.16'
+    implementation 'org.geotools:gt-main:32.2'
+    implementation 'org.geotools:gt-shapefile:32.2'
+    implementation 'org.geotools:gt-swing:32.2'
+    implementation 'org.geotools:gt-api:32.2'   // BoundingBox 포함 (GeoTools API)
+    implementation 'org.geotools:gt-referencing:32.2' // 좌표 변환 지원 (옵션)
 
     implementation 'org.apache.commons:commons-math3:3.6.1'
     implementation 'org.drools:drools-core:10.0.0'

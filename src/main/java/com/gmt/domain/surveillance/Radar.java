@@ -8,8 +8,8 @@ public class Radar extends ActiveSensor {
     private double frequency;
     private final List<String> detectedTargets;
 
-    public Radar(double latitude, double longitude, double altitude) {
-        super("Radar", latitude, longitude, altitude);
+    public Radar(String sensorId) {
+        super("RADAR", sensorId);
         this.detectedTargets = new ArrayList<>();
     }
 
@@ -19,7 +19,6 @@ public class Radar extends ActiveSensor {
 
     public void detectTarget(String targetId) {
         detectedTargets.add(targetId);
-        this.lastUpdated = LocalDateTime.now();
     }
 
     public List<String> getDetectedTargets() {

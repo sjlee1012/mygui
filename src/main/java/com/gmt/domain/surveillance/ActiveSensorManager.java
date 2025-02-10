@@ -45,4 +45,31 @@ public class ActiveSensorManager {
             System.out.println(sensor);
         }
     }
+
+
+    public static void main(String[] args) {
+        ActiveSensorManager sensorManager = new ActiveSensorManager();
+
+        // Radar 센서 추가
+        Radar radar1 = new Radar("RADAR1");
+        radar1.setSensorLocation(37.7749, 122.4194, 100.0);
+        radar1.setFrequency(9400);
+        sensorManager.addSensor(radar1);
+
+        // Vision Camera 센서 추가
+        VisionCamera visionCamera1 = new VisionCamera("VISION1");
+        visionCamera1.setSensorLocation(37.7749, 122.4194, 100.0);
+        sensorManager.addSensor(visionCamera1);
+
+
+        // IR Camera 센서 추가
+        IRCamera irCamera1 = new IRCamera("IR1");
+        irCamera1.setSensorLocation(37.7749, 122.4194, 100.0);
+        sensorManager.addSensor(irCamera1);
+
+        // 모든 센서 출력
+        sensorManager.displayAllSensors();
+    }
+
+
 }

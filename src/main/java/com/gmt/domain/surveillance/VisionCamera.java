@@ -7,19 +7,23 @@ public class VisionCamera extends ActiveSensor {
     private Resolution resolution;
     private boolean recordingStatus;
 
-    public VisionCamera(double latitude, double longitude, double direction) {
-        super("CCTV", latitude, longitude, direction);
+    public VisionCamera(String sensorId) {
+        super("CCTV", sensorId);
+        resolution =  Resolution.HD;
         this.recordingStatus = false;
     }
 
+    public void setResolution(Resolution resolution) {
+        this.resolution = resolution;
+    }
+
+
     public void startRecording() {
         this.recordingStatus = true;
-        this.lastUpdated = LocalDateTime.now();
     }
 
     public void stopRecording() {
         this.recordingStatus = false;
-        this.lastUpdated = LocalDateTime.now();
     }
 
     @Override

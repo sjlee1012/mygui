@@ -12,8 +12,8 @@ public class MainDroolsTest {
         // 여기서는 간단히 사각형 폴리곤 등으로 대체 가능
         // (좌표 정의는 생략하거나 기존 예시 참고)
         // ...
-        // manager.addRegion( new SafeRoute("SR-1", lineString, 50.0) );
-        // manager.addRegion( new SafeRoute("SR-2", lineString2, 100.0) );
+//         manager.addRegion( new SafeRoute("SR-1", lineString, 50.0) );
+//         manager.addRegion( new SafeRoute("SR-2", lineString2, 100.0) );
 
         // 2) 선박 생성
         Ship shipA = new Ship("Ship-A", 0, 0);

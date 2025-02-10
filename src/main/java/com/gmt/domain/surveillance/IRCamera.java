@@ -8,14 +8,13 @@ public class IRCamera extends ActiveSensor {
     private double thermalSensitivity;
     private final List<String> detectedHeatSources;
 
-    public IRCamera(double latitude, double longitude, double altitude) {
-        super("IR Camera", latitude, longitude, altitude);
+    public IRCamera(String sensorId) {
+        super("IRCamera", sensorId);
         this.detectedHeatSources = new ArrayList<>();
     }
 
     public void detectHeatSource(String sourceId) {
         detectedHeatSources.add(sourceId);
-        this.lastUpdated = LocalDateTime.now();
     }
 
     public List<String> getDetectedHeatSources() {

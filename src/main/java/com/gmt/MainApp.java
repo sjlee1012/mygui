@@ -19,14 +19,16 @@ public class MainApp {
 
         // 3) "DeviceA"에서 들어온 메시지 파싱
         NmeaMessage msgA = NmeaMessageFactory.create(ggaSentence, "DeviceA");
-        if (msgA instanceof GgaMessage gga) {
+        if (msgA instanceof GgaMessage) {
+            GgaMessage gga = (GgaMessage) msgA;
             System.out.println("[DeviceA] GGA time: " + gga.getTime());
             System.out.println("[DeviceA] lat/lon : " + gga.getLatitude() + ", " + gga.getLongitude());
         }
 
         // 4) "DeviceB"에서 들어온 메시지 파싱
         NmeaMessage msgB = NmeaMessageFactory.create(ggaSentence, "DeviceB");
-        if (msgB instanceof GgaMessage gga2) {
+        if (msgB instanceof GgaMessage) {
+            GgaMessage gga2 = (GgaMessage) msgB;
             System.out.println("[DeviceB] GGA time: " + gga2.getTime());
             System.out.println("[DeviceB] lat/lon : " + gga2.getLatitude() + ", " + gga2.getLongitude());
         }
